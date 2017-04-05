@@ -20,7 +20,12 @@ sudo yum install -y python-pip
 
 #sudo pip install pip --upgrade
 
-sudo yum install -y python-swiftclient
+#sudo yum install -y python-swiftclient
+
+sudo yum install python-setuptools
+sudo easy_install pip
+sudo pip install --upgrade setuptools
+sudo pip install python-swiftclient
 
 # Run the Service
 
