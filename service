@@ -1,9 +1,12 @@
 #!/bin/bash
 # Swiftstack service
+#
 
 . /utils.sh
 
+
 env
+
 cmd=$1
 serviceStatus=""
 
