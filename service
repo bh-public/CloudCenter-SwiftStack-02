@@ -2,24 +2,24 @@
 # Swiftstack service
 #
 
-. /utils.sh
+#. /utils.sh
 
 
 env
 
-print_log "$(env)"
+#print_log "$(env)"
 
 cmd=$1
 serviceStatus=""
 
-if [ -n "$gitTag" ]; then
-    agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
-else
-     agentSendLogMessage  "Didn't find custom parameter gitTag. Using gitTag=master"
-     gitTag="swiftstack container create"
-fi
+#if [ -n "$gitTag" ]; then
+#    agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
+#else
+#     agentSendLogMessage  "Didn't find custom parameter gitTag. Using gitTag=master"
+#     gitTag="swiftstack container create"
+#fi
 
-print_log "Yum epel package install"
+#print_log "Yum epel package install"
 
 yum install -y epel-release
 
