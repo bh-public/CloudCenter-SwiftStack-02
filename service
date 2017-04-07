@@ -10,25 +10,25 @@ env
 cmd=$1
 serviceStatus=""
 
-#if [ -n "$gitTag" ]; then
-#    agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
-#else
-#     agentSendLogMessage  "Didn't find custom parameter gitTag. Using gitTag=master"
-#     gitTag="swiftstack container create"
-#fi
+if [ -n "$gitTag" ]; then
+    agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
+else
+     agentSendLogMessage  "Didn't find custom parameter gitTag. Using gitTag=master"
+     gitTag="swiftstack container create"
+fi
 
-sudo yum install -y epel-release
+yum install -y epel-release
 
-sudo yum install -y python-pip
+yum install -y python-pip
 
 #sudo pip install pip --upgrade
 
 #sudo yum install -y python-swiftclient
 
-sudo yum install python-setuptools
-sudo easy_install pip
-sudo pip install --upgrade setuptools
-sudo pip install python-swiftclient
+yum install python-setuptools
+easy_install pip
+pip install --upgrade setuptools
+pip install python-swiftclient
 
 # Run the Service
 
