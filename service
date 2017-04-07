@@ -2,7 +2,7 @@
 # Swiftstack service
 #
 
-. /utils.sh
+./utils.sh
 
 
 env
