@@ -30,7 +30,7 @@ yum install -y epel-release
 
 #sudo yum install -y python-swiftclient
 
-yum install python-setuptools
+yum install -y python-setuptools
 easy_install pip
 pip install --upgrade setuptools
 pip install python-swiftclient
