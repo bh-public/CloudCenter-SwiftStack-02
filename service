@@ -3,7 +3,7 @@
 # Swiftstack service
 #
 
-yum update
+yum update -y
 
 . /utils.sh
 
