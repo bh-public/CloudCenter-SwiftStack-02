@@ -37,11 +37,12 @@ easy_install pip
 pip install --upgrade pip
 pip install --upgrade setuptools
 pip install python-swiftclient
-
+print_log "Done with all packages, now doing START"
 # Run the Service
 
 case $cmd in
         start)
+		print_log "START - make a container called Bills-Dev."
 		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post Bills-Dev
                 serviceStatus="Started"
                 ;;
