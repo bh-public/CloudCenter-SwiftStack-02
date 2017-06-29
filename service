@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Swiftstack service
+# Swiftstack service SS02 example using swift clients
 #
 
 yum update -y
@@ -38,6 +38,7 @@ pip install --upgrade pip
 pip install --upgrade setuptools
 print_log "INSTALL - Installing Swift CLI package"
 pip install python-swiftclient
+print_log "CONTAINER NAME IS:"$CONTAINER
 print_log "RUN - Now lets START and run the service"
 # Run the Service
 
