@@ -49,6 +49,8 @@ case $cmd in
                 serviceStatus="Started"
                 ;;
         stop)   
+                print_log "REMOVE - delete a container called "$CONTAINER
+				swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper delete $CONTAINER
                 serviceStatus="Stopped"
                 ;;
         *)
