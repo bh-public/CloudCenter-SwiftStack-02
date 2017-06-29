@@ -44,8 +44,8 @@ print_log "RUN - Now lets START and run the service"
 
 case $cmd in
         start)
-		print_log "START - make a container called Bills-Dev."
-		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post Bills-Dev
+		print_log "START - make a container called "$CONTAINER
+		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post $CONTAINER
                 serviceStatus="Started"
                 ;;
         stop)   
