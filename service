@@ -27,7 +27,7 @@ print_log "$(env)"
 
 cmd=$1
 serviceStatus=""
-setenv PASSWD-HIDE xxxxxxxxxx
+setenv PASSWDHIDE xxxxxxxxxx
 
 if [ -n "$gitTag" ]; then
     agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
@@ -53,7 +53,7 @@ pip install --upgrade setuptools
 print_log "INSTALL - Installing Swift CLI package"
 pip install python-swiftclient
 print_log "Logging in as User" $USER
-print_log "Executing Password" $PASSWD-HIDE
+print_log "Executing Password" $PASSWDHIDE
 print_log "Swiftstack URL Endpoint is" $ENDPOINT
 print_log "Container name to create is "$CONTAINER
 print_log "RUN - Now lets START and run the service"
