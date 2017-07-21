@@ -7,7 +7,15 @@
 # 		$ENDPOING - The IP or URL of the object storage API
 #		$USER - The user ID to login swift stack with
 # 		$PASSWD - Your Password given to you earlier
+#		
+# Locally we will use a few also
+# 
+#		$PASSWD-HIDE - Hidden password to ************
+#		cmd for our case statement
 #
+#
+#
+
 yum update -y
 
 . /utils.sh
@@ -19,6 +27,7 @@ print_log "$(env)"
 
 cmd=$1
 serviceStatus=""
+setenv PASSWD-HIDE xxxxxxxxxx
 
 if [ -n "$gitTag" ]; then
     agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
@@ -43,24 +52,24 @@ pip install --upgrade pip
 pip install --upgrade setuptools
 print_log "INSTALL - Installing Swift CLI package"
 pip install python-swiftclient
-print_log "User Name" $USER
-print_log "Password" $PASSWD
+print_log "Logging in as User" $USER
+print_log "Executing Password" $PASSWD-HIDE
 print_log "Swiftstack URL Endpoint is" $ENDPOINT
-print_log "CONTAINER NAME TO CREATE IS:"$CONTAINER
+print_log "Container name to create is "$CONTAINER
 print_log "RUN - Now lets START and run the service"
 # Run the Service
 
 case $cmd in
         start)
-		print_log "START - Swiftstack Object Store container created called "$CONTAINER
-		print_log "START - Provisioned to " $ENDPOINT
+		print_log "START - Swiftstack Object Store container created is called "$CONTAINER
+		print_log "START - Provisioned to SwiftStack Endpoint" $ENDPOINT
 #		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post $CONTAINER
 		swift -A $ENDPOINT -U Bill -K harper post $CONTAINER
                 serviceStatus="Started"
                 ;;
         stop)   
                 print_log "REMOVE - delete a container called "$CONTAINER
-				swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper delete $CONTAINER
+				swift -A $ENDPOINT -U Bill -K harper delete $CONTAINER
                 serviceStatus="Stopped"
                 ;;
         *)
