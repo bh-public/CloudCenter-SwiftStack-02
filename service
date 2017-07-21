@@ -2,7 +2,12 @@
 #
 # Swiftstack service SS02 example using swift clients
 #
-
+# We will pass in several environment varables listed below
+# 		$CONTAINER - The name of the object store container to create
+# 		$ENDPOING - The IP or URL of the object storage API
+#		$USER - The user ID to login swift stack with
+# 		$PASSWD - Your Password given to you earlier
+#
 yum update -y
 
 . /utils.sh
@@ -38,14 +43,17 @@ pip install --upgrade pip
 pip install --upgrade setuptools
 print_log "INSTALL - Installing Swift CLI package"
 pip install python-swiftclient
+print_log "Swiftstack URL Endpoint is" $ENDPOINT
 print_log "CONTAINER NAME TO CREATE IS:"$CONTAINER
 print_log "RUN - Now lets START and run the service"
 # Run the Service
 
 case $cmd in
         start)
-		print_log "START - make a container called "$CONTAINER
-		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post $CONTAINER
+		print_log "START - Swiftstack Object Store container created called "$CONTAINER
+		print_log "START - Provisioned to " $ENDPOINT
+#		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post $CONTAINER
+		swift -A $ENDPOINT -U Bill -K harper post $CONTAINER
                 serviceStatus="Started"
                 ;;
         stop)   
