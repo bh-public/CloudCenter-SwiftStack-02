@@ -43,6 +43,8 @@ pip install --upgrade pip
 pip install --upgrade setuptools
 print_log "INSTALL - Installing Swift CLI package"
 pip install python-swiftclient
+print_log "User Name" $USER
+print_log "Password" $PASSWD
 print_log "Swiftstack URL Endpoint is" $ENDPOINT
 print_log "CONTAINER NAME TO CREATE IS:"$CONTAINER
 print_log "RUN - Now lets START and run the service"
