@@ -64,12 +64,12 @@ case $cmd in
 		print_log "START - Swiftstack Object Store container created is called "$CONTAINER
 		print_log "START - Provisioned to SwiftStack Endpoint" $ENDPOINT
 #		swift -A http://184.94.251.119/auth/v1.0 -U Bill -K harper post $CONTAINER
-		swift -A $ENDPOINT -U Bill -K harper post $CONTAINER
+		swift -A $ENDPOINT -U $USER -K $PASSWD post $CONTAINER
                 serviceStatus="Started"
                 ;;
         stop)   
                 print_log "REMOVE - delete a container called "$CONTAINER
-				swift -A $ENDPOINT -U Bill -K harper delete $CONTAINER
+				swift -A $ENDPOINT -U $USER -K $PASSWD delete $CONTAINER
                 serviceStatus="Stopped"
                 ;;
         *)
