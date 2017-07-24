@@ -27,7 +27,7 @@ print_log "$(env)"
 
 cmd=$1
 serviceStatus=""
-setenv PASSWDHIDE xxxxxxxxxx
+export PASSWDHIDE=xxxxxxxxxx
 
 if [ -n "$gitTag" ]; then
     agentSendLogMessage  "Found gitTag parameter gitTag = ${gitTag}"
