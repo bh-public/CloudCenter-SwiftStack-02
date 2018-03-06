@@ -4,7 +4,7 @@
 #
 # We will pass in several environment varables listed below
 # 		$CONTAINER - The name of the object store container to create
-# 		$ENDPOING - The IP or URL of the object storage API
+# 		$ENDPOINT- The IP or URL of the object storage API
 #		$USER - The user ID to login swift stack with
 # 		$PASSWD - Your Password given to you earlier
 #		
